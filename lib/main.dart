@@ -13,15 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-      theme:ThemeData(
-
+      theme: ThemeData(
           fontFamily: 'Poppins',
           primaryColor: Colors.white,
-          colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0x2797FF))
-
-      ),
-
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: const Color(0x2797FF))),
       home: LoginPage(),
     );
   }

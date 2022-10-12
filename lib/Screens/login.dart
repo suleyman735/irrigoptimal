@@ -16,7 +16,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String? email;
   String? password;
-  bool obserText = false;
+  bool obserText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
