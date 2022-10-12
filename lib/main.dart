@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:irrigoptimal/Screens/irrig_start.dart';
 
-import 'Screens/home_page.dart';
 import 'Screens/login.dart';
 import 'Widgets/register.dart';
 
@@ -14,8 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: StartIrrig(),
+    return const MaterialApp(
+      home: LoginPage(),
     );
   }
 }
