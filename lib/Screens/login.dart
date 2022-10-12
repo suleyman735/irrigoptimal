@@ -16,11 +16,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String? email;
   String? password;
-  bool obserText = false;
+  bool obserText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Center(
           child: Padding(
