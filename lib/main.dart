@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:irrigoptimal/Screens/home_page.dart';
 
 import 'Screens/login.dart';
 import 'Widgets/register.dart';
+import 'constant/style.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+Style style = new Style();
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -14,11 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          fontFamily: 'Poppins',
-          primaryColor: Colors.white,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: const Color(0x2797FF))),
-      home: LoginPage(),
+        fontFamily: 'Poppins',
+      ),
+      home: MyHomePage(),
     );
   }
 }
