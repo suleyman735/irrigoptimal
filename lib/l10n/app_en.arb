@@ -2,6 +2,7 @@
     "language": "English",
     "initialMessage" :"Message in English",
     "welcomeMessage":"Hello {name}!",
+    "username":"username",
     "@welcomeMessage":{
         "placeholders":{
         "name":{

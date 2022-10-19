@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:irrigoptimal/constant/style.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../Widgets/button.dart';
 import '../Widgets/changescreen.dart';
@@ -8,7 +10,6 @@ import '../Widgets/myloginbutton.dart';
 import '../Widgets/myloginfield.dart';
 import '../Widgets/register.dart';
 import '../main.dart';
-import '../constant/style.dart';
 
 Style style = new Style();
 

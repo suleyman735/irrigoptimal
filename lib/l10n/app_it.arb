@@ -1,7 +1,8 @@
 {
     "language": "Italian",
      "initialMessage" :"Messaggio in inglese",
-    "welcomeMessage":"Hello {name}!",
+     "username" :"nomeutente",
+    "welcomeMessage":"Ciao {name}!",
     "@welcomeMessage":{
         "placeholders":{
         "name":{
