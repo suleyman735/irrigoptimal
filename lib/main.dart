@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: AppLocalizations.supportedLocales,
       theme:
           ThemeData(fontFamily: 'Poppins', backgroundColor: style.accentColor),
-      home: MyHomePage(setLocale),
+      home: LoginPage(),
       // MyHomePage(setLocale),
     );
   }
