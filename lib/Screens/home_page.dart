@@ -163,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Align(
                         alignment: Alignment.centerRight + Alignment(0, .3),
                         child: Text(
-                          'UserName',
+                          AppLocalizations.of(context)!.name,
                           style: TextStyle(
                             color: Colors.white,
                           ),
