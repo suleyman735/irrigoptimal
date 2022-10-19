@@ -3,6 +3,7 @@ import 'package:irrigoptimal/Screens/home_page.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../constant/field.dart';
+import '../main.dart';
 
 class MyFieldsInfo extends StatefulWidget {
   String fieldName;
@@ -23,6 +24,11 @@ class _MyFieldsInfoState extends State<MyFieldsInfo> {
   ];
   @override
   Widget build(BuildContext context) {
+
+    final mediaquery = MediaQuery.of(context);
+    style.isLandscape = mediaquery.orientation == Orientation.landscape;
+    style.deviceWidth = mediaquery.size.width;
+
     // final now = DateTime.now();
     // final berlinWallFell = DateTime.utc(now);
     // print(berlinWallFell.month);
@@ -41,111 +47,137 @@ class _MyFieldsInfoState extends State<MyFieldsInfo> {
         widget.cropsName, widget.recemonedAmount, widget.lastIrrigAmount));
 
     return Scaffold(
+
+      backgroundColor: style.backgroundColor,
+
       appBar: AppBar(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: style.backgroundColor,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black, size: 35),
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: Icon(Icons.arrow_back),
         ),
-        title: Text(widget.fieldName),
+        title: Text(widget.fieldName, style: TextStyle(color: style.accentColor, fontSize: 22),),
         centerTitle: true,
       ),
       body: Container(
+        
+        padding: EdgeInsets.all(15),
+        
         child: ListView.builder(
           itemCount: fields.length,
           itemBuilder: (BuildContext context, int index) {
             return Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 20),
-                  margin: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(20),
+                  //margin: EdgeInsets.all(10),
                   width: double.infinity,
-                  height: 100,
-                  color: Color(0x46000000),
+                  decoration: BoxDecoration(
+                    color: style.inputFieldColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                   child: Column(children: [
                     Row(
                       children: [
                         Text(
                           style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.w600),
+                              fontSize: 30, fontWeight: FontWeight.w600),
                           fields[index].cropsName,
                         ),
                       ],
                     ),
+                    SizedBox(height: 6,),
                     Row(
                       children: [
-                        Text('21  °C',
+                        Text('21 °C',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 17,
                               fontWeight: FontWeight.w600,
-                              color: Color(0x46000000),
+                              color: style.subtitleCard,
                             )),
+                        SizedBox(width: 10,),
                         Icon(
                           Icons.sunny,
-                          color: Color(0x46000000),
+                          color: style.subtitleCard,
                         )
                       ],
                     ),
+                    SizedBox(height: 6,),
                     Row(
                       children: [
-                        Text('Next irrigation : '),
-                        Text('24/10/2022 at 19:00')
+                        Text('Next irrigation : ',style: TextStyle(fontWeight: FontWeight.w400),),
+                        Text('24/10/2022 at 19:00', style: TextStyle(fontWeight: FontWeight.w600),)
                       ],
                     ),
                   ]),
                 ),
-                Row(
-                  children: [
-                    Container(
-                        padding: EdgeInsets.only(left: 10, top: 10),
+
+                SizedBox(height: 20,),
+
+                Container(
+
+                  width: double.infinity,
+                  //color: Colors.red,
+
+                  child: Row(
+
+                    mainAxisAlignment: style.isLandscape ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
+
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color(0x46000000),
+                          borderRadius: BorderRadius.circular(15),
+                          color: style.inputFieldColor,
+
                         ),
-                        margin: EdgeInsets.all(20),
-                        height: 110,
-                        width: 160,
+                        width: style.isLandscape ? style.deviceHeight/2 - 30 : style.deviceWidth/2 - 30,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'LAst Irrigation Amount',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              fields[index].fieldsLastIrrigAmount.toString(),
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 25),
-                            ),
+
+                            Text('Last irrigation amount', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),),
+                            SizedBox(height: 20,),
+                            Text('${fields[index].fieldsLastIrrigAmount.toString()}L', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 30, color: style.accentColor),),
+
                           ],
-                        )),
-                    Container(
-                        padding: EdgeInsets.only(left: 10, top: 10),
+
+                        ),
+
+                      ),
+
+                      if(style.isLandscape) SizedBox(width: 30,)
+                      else Container(),
+
+                      Container(
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color(0x46000000),
+                          borderRadius: BorderRadius.circular(15),
+                          color: style.inputFieldColor,
+
                         ),
-                        margin: EdgeInsets.all(20),
-                        height: 110,
-                        width: 160,
+                        width: style.isLandscape ? style.deviceHeight/2 - 30 : style.deviceWidth/2 - 30,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Recemended Irrigation',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Text(
-                              fields[index].fieldsRecemonedAmount.toString(),
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 25),
-                            ),
+
+                            Text('Next irrigation amount', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),),
+                            SizedBox(height: 20,),
+                            Text('${fields[index].fieldsRecemonedAmount.toString()}L', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 30, color: style.accentColor),),
+
                           ],
-                        )),
-                  ],
+
+                        ),
+
+                      ),
+                    ],
+
+                  ),
+
                 ),
+
                 Column(
                   children: [
                     Container(
@@ -165,9 +197,8 @@ class _MyFieldsInfoState extends State<MyFieldsInfo> {
                           }),
                     ),
                     Container(
-                      height: 250,
+                      height: 240,
                       width: double.infinity,
-                      // color: Colors.red,
                       child: SfCartesianChart(
                         primaryXAxis: DateTimeAxis(),
                         series: <ChartSeries>[
@@ -188,7 +219,13 @@ class _MyFieldsInfoState extends State<MyFieldsInfo> {
             );
           },
         ),
+
       ),
+
     );
+
+
   }
 }
+
+
