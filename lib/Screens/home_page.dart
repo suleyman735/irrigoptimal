@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:irrigoptimal/Screens/field_information.dart';
 import 'package:irrigoptimal/Screens/infofield.dart';
+import 'package:irrigoptimal/Screens/irrigation_page.dart';
 import 'package:irrigoptimal/main.dart';
 
 import '../constant/field.dart';
@@ -24,9 +25,28 @@ const mariaName = 'Igla';
 class _MyHomePageState extends State<MyHomePage> {
   void goToStartPage() {
     print('start page');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => IrrigationPage(title)),
+    );
   }
 
-  void goToHomePage() {
+  void goToHomePage(){
+
+    setState((){
+
+      title = 'Irrigoptimal';
+
+      isCardEnabled = [false, false, false];
+
+      navigationButtonAbilitation = {
+        Icons.home: 1,
+        Icons.info: 0,
+        Icons.start: 0,
+      };
+
+    });
+
     print('home page');
   }
 
@@ -73,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late double lastIrrigAmount;
   late double recemonedAmount;
 
-  final Map<IconData, int> navigationButtonAbilitation = {
+  Map<IconData, int> navigationButtonAbilitation = {
     Icons.home: 1,
     Icons.info: 0,
     Icons.start: 0,
@@ -119,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
     fields.add(Field('Catania', 'Italy', 22, '', '', 'Potate', 1000, 2000));
 
     return Scaffold(
+      backgroundColor: style.backgroundColor,
       appBar: buildAppBar(),
       drawer: Drawer(
         child: ListView(
@@ -229,22 +250,37 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: buildSingleChildScrollViewBodyPart(fields),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: navigationButtonAbilitation.entries.map((entry) {
-              // var w = Text(entry.value);
-              //doSomething(entry.key);
+        bottomNavigationBar: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+              boxShadow: [
+                BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 5),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
+              child: BottomAppBar(
+                child: Container(
 
-              //var w = IconButton(onPressed: () {  }, icon: Icon(entry.key),);
-              var w = printIcon(entry.value, entry.key);
-              print(w);
-              return w;
-            }).toList(),
-          ),
-        ),
-      ),
+                  height: 60,
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: navigationButtonAbilitation.entries.map((entry) {
+
+                      var w = printIcon(entry.value ,entry.key);
+                      return w;
+                    }).toList(),
+
+                  ),
+                ),
+              ),
+            )
+        )
     );
   }
 
@@ -386,8 +422,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppBar buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.lightBlueAccent,
-      title: Text(title),
+      backgroundColor: style.backgroundColor,
+      elevation: 0,
+      iconTheme: const IconThemeData(color: Colors.black, size: 35),
+      title: Text(style: TextStyle(color: style.accentColor), title),
       centerTitle: true,
       actions: [
         DropdownButton<String>(
