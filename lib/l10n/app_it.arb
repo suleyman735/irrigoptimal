@@ -2,7 +2,7 @@
 
     "language": "Italian",
      "initialMessage" :"Messaggio in inglese",
-     "username" :"nomeutente",
+     "username" :"nome utente",
          "name":"Nome",
          "surname":"Cognome",
          "active":"Attivo",
