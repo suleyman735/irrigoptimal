@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_switch/flutter_switch.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import '../main.dart';
 
 class IrrigationPage extends StatefulWidget {
@@ -274,39 +274,37 @@ class _IrrigationPageState extends State<IrrigationPage> {
                             const SizedBox(width: 30),
                             Column(
                               children: [
-                                // FlutterSwitch(
-                                //         height: 30.0,
-                                //         width: 60.0,
-                                //         padding: 7.0,
-                                //         toggleSize: 15.0,
-                                //         borderRadius: 20.0,
-                                //         activeColor: style.accentColor,
-                                //         value: isToggled = false,
-                                //         onToggle: (value) {
-                                //           setState(() {
-                                //             isToggled = value;
-                                //           });
-                                //         },
-                                // ),
-
+                                FlutterSwitch(
+                                  height: 30.0,
+                                  width: 60.0,
+                                  padding: 7.0,
+                                  toggleSize: 15.0,
+                                  borderRadius: 20.0,
+                                  activeColor: style.accentColor,
+                                  value: isToggled = false,
+                                  onToggle: (value) {
+                                    setState(() {
+                                      isToggled = value;
+                                    });
+                                  },
+                                ),
                                 const SizedBox(
                                   height: 33,
                                 ),
-
-                                // FlutterSwitch(
-                                //   height: 30.0,
-                                //   width: 60.0,
-                                //   padding: 7.0,
-                                //   toggleSize: 15.0,
-                                //   borderRadius: 20.0,
-                                //   activeColor: style.accentColor,
-                                //   value: isToggled = false,
-                                //   onToggle: (value) {
-                                //     setState(() {
-                                //       isToggled = value;
-                                //     });
-                                //   },
-                                // ),
+                                FlutterSwitch(
+                                  height: 30.0,
+                                  width: 60.0,
+                                  padding: 7.0,
+                                  toggleSize: 15.0,
+                                  borderRadius: 20.0,
+                                  activeColor: style.accentColor,
+                                  value: isToggled = false,
+                                  onToggle: (value) {
+                                    setState(() {
+                                      isToggled = value;
+                                    });
+                                  },
+                                ),
                               ],
                             ),
                           ],
