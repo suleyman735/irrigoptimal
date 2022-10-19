@@ -29,11 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context,
       MaterialPageRoute(builder: (context) => IrrigationPage(title)),
     );
-    print('start page');
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => IrrigationPage(title)),
-    );
+
   }
 
   void goToHomePage() {
@@ -303,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Text(
-                    '2 active fields',
+                    '2 ${AppLocalizations.of(context)!.activeFields}',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: const Color(0x3C000000),
@@ -320,7 +316,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                      childAspectRatio: 3 / 2.4,
+                      childAspectRatio: 3 / 2.7,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20),
                   itemCount: fields.length,
@@ -353,7 +349,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           boxShadow: [
                             BoxShadow(
                               color: isCardEnabled[index] == true
-                                  ? style.accentColor.withOpacity(0.50)
+                                  ? style.accentColor.withOpacity(0.30)
                                   : style.accentColor.withOpacity(0.0),
                               spreadRadius: 5,
                               blurRadius: 15,
@@ -422,7 +418,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: style.backgroundColor,
       elevation: 0,
       iconTheme: const IconThemeData(color: Colors.black, size: 35),
-      title: Text(style: TextStyle(color: style.accentColor), title),
+      title: Text(style: TextStyle(color: style.accentColor, fontSize: 22), title),
       centerTitle: true,
       actions: [
         DropdownButton<String>(

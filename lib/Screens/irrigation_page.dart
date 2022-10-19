@@ -129,8 +129,8 @@ class _IrrigationPageState extends State<IrrigationPage> {
                   Text(
                     'Irrigation',
                     style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: style.getTextSize(style.textScale, 35.0 + 15),
+                      fontWeight: FontWeight.w500,
+                      fontSize: style.getTextSize(style.textScale, 30.0 + 15),
                     ),
                   ),
                   const SizedBox(
