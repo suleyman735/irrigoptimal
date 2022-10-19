@@ -7,6 +7,7 @@ import 'package:irrigoptimal/Screens/infofield.dart';
 import 'package:irrigoptimal/main.dart';
 
 import '../constant/field.dart';
+import 'irrigation_page.dart';
 
 const List<String> LanguageItems = <String>['Eng', 'It'];
 
@@ -23,6 +24,10 @@ const mariaName = 'Igla';
 
 class _MyHomePageState extends State<MyHomePage> {
   void goToStartPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => IrrigationPage(title)),
+    );
     print('start page');
   }
 
