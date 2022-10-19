@@ -36,10 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void goToHomePage(){
-
-    setState((){
-
+  void goToHomePage() {
+    setState(() {
       title = 'Irrigoptimal';
 
       isCardEnabled = [false, false, false];
@@ -49,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
         Icons.info: 0,
         Icons.start: 0,
       };
-
     });
 
     print('home page');
@@ -144,123 +141,124 @@ class _MyHomePageState extends State<MyHomePage> {
     fields.add(Field('Catania', 'Italy', 22, '', '', 'Potate', 1000, 2000));
 
     return Scaffold(
-      backgroundColor: style.backgroundColor,
-      appBar: buildAppBar(),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Stack(children: [
-                Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        'IrrigOptimal',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight + Alignment(0, .3),
-                      child: Text(
-                        'UserName',
-                        style: TextStyle(
-                          color: Colors.white,
+        backgroundColor: style.backgroundColor,
+        appBar: buildAppBar(),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Stack(children: [
+                  Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'IrrigOptimal',
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight + Alignment(0, .3),
-                      child: Text(
-                        'Name Surname',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight + Alignment(0, .8),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Text(
-                            'Active',
-                            style: TextStyle(color: Colors.white),
+                      Align(
+                        alignment: Alignment.centerRight + Alignment(0, .3),
+                        child: Text(
+                          'UserName',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ]),
-            ),
-            ListTile(
-              leading: Icon(Icons.place),
-              title: Text('Fields'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.play_arrow),
-              title: Text('Actuator'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.help_center),
-              title: Text('Support'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.privacy_tip),
-              title: const Text('Privacy'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: const Text('Logout'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
+                      Align(
+                        alignment: Alignment.centerRight + Alignment(0, .3),
+                        child: Text(
+                          'Name Surname',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight + Alignment(0, .8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(5.0),
+                            child: Text(
+                              'Active',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ]),
+              ),
+              ListTile(
+                leading: Icon(Icons.place),
+                title: Text('Fields'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.play_arrow),
+                title: Text('Actuator'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.help_center),
+                title: Text('Support'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.privacy_tip),
+                title: const Text('Privacy'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app),
+                title: const Text('Logout'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
         ),
-      ),
-      body: buildSingleChildScrollViewBodyPart(fields),
+        body: buildSingleChildScrollViewBodyPart(fields),
         bottomNavigationBar: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30), topLeft: Radius.circular(30)),
               boxShadow: [
-                BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 5),
+                BoxShadow(
+                    color: Colors.black38, spreadRadius: 0, blurRadius: 5),
               ],
             ),
             child: ClipRRect(
@@ -270,23 +268,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: BottomAppBar(
                 child: Container(
-
                   height: 60,
-
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: navigationButtonAbilitation.entries.map((entry) {
-
-                      var w = printIcon(entry.value ,entry.key);
+                      var w = printIcon(entry.value, entry.key);
                       return w;
                     }).toList(),
-
                   ),
                 ),
               ),
-            )
-        )
-    );
+            )));
   }
 
   SingleChildScrollView buildSingleChildScrollViewBodyPart(List<Field> fields) {
@@ -303,7 +295,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   FittedBox(
                     child: Text(
-                      'Your fields',
+                      AppLocalizations.of(context)!.yourfields,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: style.getTextSize(style.textScale, 30.0 + 15),
