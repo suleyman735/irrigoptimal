@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:irrigoptimal/Screens/home_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:irrigoptimal/Screens/irrigation_page.dart';
 
 import 'Screens/login.dart';
 import 'Widgets/register.dart';
@@ -11,57 +12,46 @@ void main() {
   runApp(MyApp());
 }
 
-<<<<<<< HEAD
 Style style = new Style();
 
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-=======
-class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
 
-const _mariaName = 'Maria';
+  // Locale? _locale;
 
-class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+//   void setLocale(Locale locale) {
+//     setState(() {
+//       _locale = locale;
+//     });
+//   }
+//
+//   String _name = _mariaName;
+//
+//   void _changeName(String name) {
+//     setState(() {
+//       _name = name;
+//     });
+//   }
+// >>>>>>> b9ef13ac6d1f677a2ce9c34e141f9bbbf3e67b60
 
-  void setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
-  }
 
-  String _name = _mariaName;
-
-  void _changeName(String name) {
-    setState(() {
-      _name = name;
-    });
-  }
->>>>>>> b9ef13ac6d1f677a2ce9c34e141f9bbbf3e67b60
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      locale: _locale,
+      // locale: _locale,
       theme: ThemeData(
           fontFamily: 'Poppins',
-<<<<<<< HEAD
+
       ),
-      home: LoginPage(),
-=======
-          primaryColor: Colors.white,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: const Color(0x2797FF))),
+      home: MyHomePage(),
+
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: MyHomePage(),
->>>>>>> b9ef13ac6d1f677a2ce9c34e141f9bbbf3e67b60
+
     );
   }
 }

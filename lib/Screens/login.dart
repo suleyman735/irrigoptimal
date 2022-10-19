@@ -63,10 +63,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
 
     final mediaquery = MediaQuery.of(context);
+
     style.isLandscape = mediaquery.orientation == Orientation.landscape;
     style.deviceWidth = mediaquery.size.width;
-    double deviceHeight = mediaquery.size.height - mediaquery.padding.top;
-
+    style.deviceHeight = mediaquery.size.height - mediaquery.padding.top;
 
     if(style.isLandscape)
       style.textScale = mediaquery.size.width * 0.01;
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     Container(
 
-                      height: deviceHeight*getHeightTitleContainer(),
+                      height: style.deviceHeight*getHeightTitleContainer(),
                       width: double.infinity,
                       padding: EdgeInsets.all(25) ,
                       child: Column(
@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Container(
 
-                      height: getHeightFormContainer(deviceHeight),
+                      height: getHeightFormContainer(style.deviceHeight),
                       width: double.infinity,
 
                       padding: EdgeInsets.all(25) ,
