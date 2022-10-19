@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irrigoptimal/Screens/home_page.dart';
 import 'package:irrigoptimal/constant/style.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -21,6 +22,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Locale? _locale;
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
   double getWidthFormContainer() {
     if (style.deviceWidth > 700) {
       return style.deviceWidth * 0.7;
@@ -152,7 +160,13 @@ class _LoginPageState extends State<LoginPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (ctx) => MyHomePage(setLocale),
+                                      ),
+                                    );
+                                  },
                                   child: Text(
                                     'Privacy',
                                     style: TextStyle(
